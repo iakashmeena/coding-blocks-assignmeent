@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1542261628 source:e:\application\codeblocks\practicalq1\main.cpp
+	<iostream>
+	<fstream>
+	<stdio.h>
+	<string.h>
+

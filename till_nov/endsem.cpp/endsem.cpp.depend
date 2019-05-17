@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1542793872 source:e:\application\codeblocks\endsem.cpp\main.cpp
+	<iostream>
+	<stdio.h>
+

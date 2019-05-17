@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1538217822 source:e:\application\codeblocks\codeb1.cpp\main.cpp
+
+1538217416 source:e:\application\codeblocks\codeb1.cpp\codec2.cpp
+	<iostream>
+
