@@ -1,11 +1,14 @@
 /*
-LEVEL ORDER ( NEW LINE, BINARY TREE)
-input type preorder value
+LEVEL ORDER ( ZIGZAG , BINARY TREE)
+Given a binary tree. Print the zig zag order i.e print level 1 from left to right, level 2 from right to left and so on.
+This means odd levels should get printed from left to right and even levels should be printed from right to left. Each level should be printed at a new line.
 
+
+Input Format:
+Enter the values of all the nodes in the binary tree in pre-order format where true suggest
+the node exists and false suggests it is NULL.
 EXAMPLE
 10 true 20 true 40 false false true 50 false false true 30 true 60 false false true 73 false false
-
-Given a binary tree. Print the level order traversal, make sure each level start at a new line.
 */
 
 #include<bits/stdc++.h>
@@ -31,10 +34,9 @@ node<T>* createbtree(node<T>*root,bool want_to_insert){
     }
 
     T data;
+    string check;
     cin>>data;
     root=new node<T>(data);
-
-    string check;
     ///left data insertion
     cin>>check;
     if(check[0]=='t'||check[0]=='T'){
@@ -64,66 +66,49 @@ node<T>* createbtree(node<T>*root,bool want_to_insert){
 
     return root;
 }
-
-///level order printing
+///FUNCTON TO PRINT ZIG-ZAG ORDER
 template<typename T>
-void printLevelorder(node<T>*root){
+void print_zigZag(node<T>*root){
     if(root==NULL){
         return;
     }
-    queue<node<T>*>q1;
-    queue<node<T>*>q2;
-    q1.push(root);
-    while(q1.empty()==0||q2.empty()==0){
-        if(!q1.empty()){
-            while(!q1.empty()){
-                node<T>*top=q1.front();
-                q1.pop();
+
+    stack<node<T>*>s1;//  TO PRINT FROM LEFT TO RIGHT
+    stack<node<T>*>s2;// TO PRINT FROM RIGHT TO LEFT
+    s1.push(root);
+    while(!s1.empty()||!s2.empty()){
+        if(!s1.empty()){
+            while(!s1.empty()){
+                node<T>*top=s1.top();
+                s1.pop();
                 cout<<top->data<<" ";
                 if(top->left){
-                    q2.push(top->left);
+                    s2.push(top->left);
                 }
                 if(top->right){
-                    q2.push(top->right);
+                    s2.push(top->right);
                 }
             }
         }
         else{
-            while(!q2.empty()){
-                node<T>*top=q2.front();
-                q2.pop();
+            while(!s2.empty()){
+                node<T>*top=s2.top();
+                s2.pop();
                 cout<<top->data<<" ";
-                if(top->left){
-                    q1.push(top->left);
-                }
                 if(top->right){
-                    q1.push(top->right);
+                    s1.push(top->right);
                 }
-
+                if(top->left){
+                    s1.push(top->left);
+                }
             }
         }
-        cout<<endl;
     }
+
 }
-
-
-
-/*template<typename T>
-void preorder(node <T>*root){
-    if(root==NULL){
-        return;
-    }
-    cout<<root->data<<" ";
-    preorder(root->left);
-    preorder(root->right);
-}*/
 int main()
 {
     node<int>*root=NULL;
     root=createbtree<int>(root,1);
-    printLevelorder<int>(root);
+    print_zigZag<int>(root);
 }
-
-
-
-

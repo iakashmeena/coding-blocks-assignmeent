@@ -31,10 +31,9 @@ node<T>* createbtree(node<T>*root,bool want_to_insert){
     }
 
     T data;
+    string check;
     cin>>data;
     root=new node<T>(data);
-
-    string check;
     ///left data insertion
     cin>>check;
     if(check[0]=='t'||check[0]=='T'){
@@ -66,6 +65,7 @@ node<T>* createbtree(node<T>*root,bool want_to_insert){
 }
 
 ///level order printing
+
 template<typename T>
 void printLevelorder(node<T>*root){
     if(root==NULL){
@@ -106,23 +106,14 @@ void printLevelorder(node<T>*root){
     }
 }
 
-
-
-/*template<typename T>
-void preorder(node <T>*root){
-    if(root==NULL){
-        return;
-    }
-    cout<<root->data<<" ";
-    preorder(root->left);
-    preorder(root->right);
-}*/
 int main()
 {
     node<int>*root=NULL;
     root=createbtree<int>(root,1);
     printLevelorder<int>(root);
 }
+
+
 
 
 
