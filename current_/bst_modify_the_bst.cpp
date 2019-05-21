@@ -146,19 +146,17 @@ int main()
         cout<<"Preorder : ";
         preorder<int>(root);
         cout<<endl;
-        delete_node_inBst(root,1);
-        preorder(root);
 
-        /*int k1;
+        int k1;
         int k2;
         cin>>k1>>k2;
         set_in_range(root,s,k1,k2);
         for(auto it:s){
-            delete_node_inBst(root,it);
+            root=delete_node_inBst(root,it);
         }
 
         cout<<"Preorder : ";
-        preorder<int>(root);*/
+        preorder<int>(root);
     }
 
 }
