@@ -135,7 +135,7 @@ int main()
     while(t--){
         node<int>*root=NULL;
         int n;
-        set<int>s;//CAN'T DELETE IN A RECURSIVE FUNCTION SO DELETE ONE BY ONE AFTER PUTTIN DESISIRED VALUE IN ANY DATA STRUCTURE
+        set<int>s;//CAN'T DELETE IN A RECURSIVE FUNCTION SO DELETE ONE BY ONE AFTER PUTTING DESIRED VALUE IN ANY DATA STRUCTURE
         cin>>n;
             while(n--){
             int data;
