@@ -98,15 +98,26 @@ bool is_balance(node<T>*root){
 
 
 }
+template<typename T>
+void preorder(node<T>*root){
+    if(root==NULL){
+        return;
+    }
+    cout<<root->data;
+    preorder(root->left);
+    preorder(root->right);
+    return;
+}
 
 int main()
 {
     node<int>*root=NULL;
     root=buildtree<int>(root,1);
-    if(is_balance<int>(root)==1){
+    preorder(root);
+    /*if(is_balance<int>(root)==1){
         cout<<"true";
     }
     else{
         cout<<"false";
-    }
+    }*/
 }
