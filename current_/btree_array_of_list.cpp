@@ -65,7 +65,7 @@ node<T>* createbtree(node<T>*root,bool want_to_insert=1){
     return root;
 }
 template<typename T>
-void all_node(node<T>*&root, vector< vector<T> > &v){
+void all_node(node<T>*&root,map<int,list<T> > &m){
     if(root==NULL){
         return;
     }
@@ -75,10 +75,11 @@ void all_node(node<T>*&root, vector< vector<T> > &v){
     q1.push(root);
     while(!q1.empty() || !q2.empty()){
         if(!q1.empty()){
+
             while(!q1.empty()){
                 node<T>*top=q1.front();
+                m[i].push_back(top->data);
                 q1.pop();
-                v[i].push_back(top->data);
                 if(top->left){
                     q2.push(top->left);
                 }
@@ -90,8 +91,8 @@ void all_node(node<T>*&root, vector< vector<T> > &v){
         else{
             while(!q2.empty()){
             node<T>*top=q2.front();
+             m[i].push_back(top->data);
             q2.pop();
-                v[i].push_back(top->data);
                 if(top->left){
                     q1.push(top->left);
                 }
@@ -105,34 +106,30 @@ void all_node(node<T>*&root, vector< vector<T> > &v){
     }
     return;
 }
-void pushin(vector< vector<int> >&v){
-    for(int i=0;i<5;i++){
-        for(int j=1;j<6;j++){
-            v[i].push_back(j);
-        }
-    }
-}
-void  printv(const vector<vector <int> > &v){
-            for(int i=0;i<v.size();i++){
-        for(int j=0;j<v[i].size();j++){
-            cout<<v[i][j]<<",";
-        }
-        cout<<endl;
-    }
-}
 int main()
 {
-    /*vector< vector<int> > v;
-    v[0].push_back(1);
-    v.push_back(v[0]);
-    v[0][0]=11;
-    cout<<v[0][0];
-   /* node<int>*root=NULL;
+    map<int ,list<int> > m;
+    node<int>*root=NULL;
     root=createbtree<int>(root);
-    all_node<int>(root,v);*/
-   // pushin(v);
-   // printv(v);
+    all_node<int>(root,m);
+    cout<<"[";
+    for(auto it=m.begin();it!=m.end();it){
 
-   node<int>*l=new list<int> l;
+        cout<<"[";
+        for(auto it2=it->second.begin();it2!=it->second.end();it2){
+            cout<<*it2;
+            it2++;
+            if(it2!=it->second.end()){
+                cout<<", ";
+            }
+        }
+
+    cout<<"]";
+    it++;
+    if(it!=m.end()){
+        cout<<", ";
+    }
+    }
+    cout<<"]";
 
 }
