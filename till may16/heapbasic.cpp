@@ -1,5 +1,5 @@
 //heap basic
-/*
+
 
 #include<iostream>
 #include<vector>
@@ -69,7 +69,6 @@ int main()
     cout<<endl;
 
 }
-        */
 
 
 //use of inbuilt library
@@ -95,7 +94,8 @@ int main()
 
     }
 }
-            */
+
+            /*
 //using custom comperator
 #include<iostream>
 #include<queue>
@@ -143,3 +143,4 @@ int main()
         c.pop();
     }
 }
+*/
