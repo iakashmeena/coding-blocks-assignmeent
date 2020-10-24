@@ -60,5 +60,6 @@ int main()
     t.add("ape");
     t.add("coding");
     t.add("pudding");
+    t.add("cheesy fries");
     cout<<t.search("coding");
 }
